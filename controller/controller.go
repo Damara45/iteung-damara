@@ -1,8 +1,8 @@
 package controller
 
 import (
+	ghr "github.com/Damara45/ghifarganteng"
 	"github.com/Damara45/iteung-damara/config"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/websocket/v2"
 	"github.com/whatsauth/whatsauth"
@@ -27,4 +27,9 @@ func PostWhatsAuthRequest(c *fiber.Ctx) error {
 		return c.JSON(ws)
 	}
 
+}
+func GetDataMahasiswa(c *fiber.Ctx) error {
+	mahasiswa := c.Params("npm")
+	getdata := ghr.GetDataMahasiswa(mahasiswa)
+	return c.JSON(getdata)
 }
